@@ -1,4 +1,4 @@
-local Door = require "lock.lib.door"
+local Side = require "lock.lib.side"
 
 local Pns = require "pns.client"
 
@@ -152,14 +152,14 @@ function Lock:init()
     side = self._config.door.device_side
   }
 
-  self._left = Door.new{
+  self._left = Side.new{
     config = self._config.left,
     log = PrefixedLogger.new(self._log, "[left]"),
     request_open = function () self:request_open() end,
     ui = GuiH
   }
 
-  self._right = Door.new{
+  self._right = Side.new{
     config = self._config.right,
     log = PrefixedLogger.new(self._log, "[right]"),
     request_open = function () self:request_open() end,
