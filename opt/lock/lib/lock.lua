@@ -231,11 +231,10 @@ end
 --- Request opening of the door.
 ---@private
 function Lock:request_open()
-  self._log:debug("Left open requested.")
-  self._chamber:async{
+  self._log:debug("Open requested.")
+  self._left:async{
     fn = function()
       self._log:trace("Suspend all.")
-      self._chamber:suspend()
       self._left:suspend()
       self._right:suspend()
 
@@ -255,7 +254,6 @@ function Lock:request_open()
       self._log:info("Door closed.")
 
       self._log:trace("Unsuspend all.")
-      self._chamber:resume()
       self._left:resume()
       self._right:resume()
     end

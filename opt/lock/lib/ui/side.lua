@@ -84,7 +84,7 @@ function SideUi:async(params)
 end
 
 --- Init UI
----@param params DoorUiCreationParams Door UI creation parameters.
+---@param params SideUiCreationParams Side UI creation parameters.
 ---@private
 function SideUi:init_ui(params)
   self._ui.new.rectangle{
